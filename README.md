@@ -20,11 +20,17 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 3. Restart Host (Windows only)
 4. Downlod the zipped [repository][3] to your $HOME or just C:\ or ~
 5. Unzip
-> cd ~; unzip plan9_workshop_tutorial-master.zip
+```
+cd ~; unzip plan9_workshop_tutorial-master.zip
+```
 6. Enter the plan9_workshop_tutorial-master directory
-> cd plan9_workshop_tutorial-master
+```
+cd plan9_workshop_tutorial-master
+```
 7. Start the VM
-> vagrant up
+```
+vagrant up
+```
 ! You will need to enter your user password to mount the sources folder into the guest system !
 
 ........................................................................................
@@ -38,9 +44,13 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 
 ### Sources 
 1. Enter the plan9_workshop_tutorial-master/source/plan9 directory
-> cd ~/unzip plan9_workshop_tutorial-master/source/plan9
+```
+cd ~/unzip plan9_workshop_tutorial-master/source/plan9
+```
 2. Clone the [web application][4]
-> git clone 
+```
+git clone
+```
 3. Clone the [nodejs api backend][5]
 4. Clone the [storm backend][6]
 
