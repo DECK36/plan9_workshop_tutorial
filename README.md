@@ -33,9 +33,9 @@ vagrant up
 ```
 ! You will need to enter your user password to mount the sources folder into the guest system !
 
-........................................................................................
-... This part is under construction. You will not be able to use it currently.
-........................................................................................
+*********
+This part is under construction. You will not be able to use it currently.
+*********
 ### Install IDE (IntelliJ)
 1. Downdload IntelliJ
 
