@@ -24,17 +24,17 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 3. Restart Host (Windows only)
 4. Downlod the zipped [repository][3] to your $HOME or just C:\ or ~
 5. Unzip
-```
-cd ~; unzip plan9_workshop_tutorial-master.zip
-```
+    ```
+    cd ~; unzip plan9_workshop_tutorial-master.zip
+    ```
 6. Enter the plan9_workshop_tutorial-master directory
-```
-cd plan9_workshop_tutorial-master
-```
+    ```
+    cd plan9_workshop_tutorial-master
+    ```
 7. Start the VM
-```
-vagrant up
-```
+    ```
+    vagrant up
+    ```
 ! You will need to enter your user password to mount the sources folder into the guest system !
 
 ### Install IDE (IntelliJ)
@@ -46,29 +46,29 @@ vagrant up
 
 ### Sources
 1. Enter the plan9_workshop_tutorial-master/source/plan9 directory
-```
-cd ~/unzip plan9_workshop_tutorial-master/source/plan9
-```
+    ```
+    cd ~/unzip plan9_workshop_tutorial-master/source/plan9
+    ```
 2. Clone the [web application][4]
-```
-git clone https://github.com/DECK36/deck36-php-web-app
-```
+    ```
+    git clone https://github.com/DECK36/deck36-php-web-app
+    ```
 3. Install the php-web-app
-Follow the [README.md][4].
+    Follow the [README.md][4].
 
 4. Clone the [nodejs api backend][5]
-```
-https://github.com/DECK36/deck36-api-backend
-```
+    ```
+    https://github.com/DECK36/deck36-api-backend
+    ```
 5. Install the nodejs api backend
-Follow the [README.md][5].
+    Follow the [README.md][5].
 
 6. Clone the [storm backend][6]
-```
-https://github.com/DECK36/deck36-storm-backend-nodejs
-```
+    ```
+    https://github.com/DECK36/deck36-storm-backend-nodejs
+    ```
 7. Install the storm backend
-Follow the [README.md][7].
+    Follow the [README.md][7].
 
 ### Package Storm Topology
 
