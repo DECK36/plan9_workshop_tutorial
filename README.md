@@ -6,9 +6,13 @@ Tutorial for the DECK36 Plan9 Workshop
 [4]: https://github.com/DECK36/deck36-php-web-app "Plan9 Web Application"
 [5]: https://github.com/DECK36/deck36-api-backend "Plan9 NodeJS API Backend"
 [6]: https://github.com/DECK36/deck36-storm-backend-nodejs "Plan9 Storm Backend with NodeJS"
+[7]: http://www.jetbrains.com/idea/download "IntelliJ Download"
+[logo]: ./deck36.png "Deck36 Logo"
+
+![Deck36 Logo][logo]
 
 ## Introduction
-This tutorial is dedicated to the workshops held by DECK36. 
+This tutorial is dedicated to the workshops held by DECK36.
 It can be used to setup a local developmentenvironment to follow the workshop.
 
 ## Installation
@@ -33,30 +37,43 @@ vagrant up
 ```
 ! You will need to enter your user password to mount the sources folder into the guest system !
 
-*********
-This part is under construction. You will not be able to use it currently.
-*********
 ### Install IDE (IntelliJ)
-1. Downdload IntelliJ
+1. Download [IntelliJ Community Edition][7]
+2. Install the IDE
 
 ### Install git
-1. Just install a git client of your choice
+1. Just install a git client of your choice, suitable for your system.
 
-### Sources 
+### Sources
 1. Enter the plan9_workshop_tutorial-master/source/plan9 directory
 ```
 cd ~/unzip plan9_workshop_tutorial-master/source/plan9
 ```
 2. Clone the [web application][4]
 ```
-git clone
+git clone https://github.com/DECK36/deck36-php-web-app
 ```
-3. Clone the [nodejs api backend][5]
-4. Clone the [storm backend][6]
+3. Install the php-web-app
+Follow the [README.md][4].
+
+4. Clone the [nodejs api backend][5]
+```
+https://github.com/DECK36/deck36-api-backend
+```
+5. Install the nodejs api backend
+Follow the [README.md][5].
+
+6. Clone the [storm backend][6]
+```
+https://github.com/DECK36/deck36-storm-backend-nodejs
+```
+7. Install the storm backend
+Follow the [README.md][7].
 
 ### Package Storm Topology
 
 ## Start all components
+
 
 ## Play Plan9 From Outer Space
 
