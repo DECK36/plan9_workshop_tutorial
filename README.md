@@ -48,6 +48,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     sudo vi /etc/rabbitmq/rabbitmq.config
     ```
     Empty the file and paste
+
     ```
     [ 
         {rabbit, [ 
@@ -57,6 +58,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
         ]} 
     ].
     ```
+    
     Save the file.
 10. Restart the rabbit-mq service
     ```
