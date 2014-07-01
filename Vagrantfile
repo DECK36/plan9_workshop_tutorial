@@ -38,11 +38,12 @@ Vagrant.configure("2") do |config|
   		end
 		
 		if Vagrant::Util::Platform.windows?
-			config.vm.synced_folder "./source/plan9", "/home/vagrant/plan9", type: "smb"
+                        config.vm.synced_folder "./source/plan9", "/home/vagrant/plan9", type: "smb"
+                        config.vm.synced_folder "./source/m2", "/home/vagrant/.m2", type: "smb"
                 else
                         machine.vm.synced_folder "./source/plan9", "/home/vagrant/plan9", { :nfs => true, nfs_version: 3 }
+                        machine.vm.synced_folder "./source/m2", "/home/vagrant/.m2", { :nfs => true, nfs_version: 3 }
                 end
-
 	# Branding
 	config.vm.provision :shell, :inline => <<-PREPARE
 		/bin/cat /vagrant/source/ascii-logo.txt
