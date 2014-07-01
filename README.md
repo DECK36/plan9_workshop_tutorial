@@ -115,7 +115,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     ```
 
 7. Install the storm backend
-    Follow the [README.md][7].
+    Follow the [README.md][6].
 
 ## Start all components
 1. Enter the virtual mashine
