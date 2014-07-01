@@ -455,13 +455,14 @@ Et voila!
 ## Package Storm Topology
 
 1. We need to wrap up our Node.js bolt in our deck36-api-backend project. We use [sardines]() to wrap all javascript files into our final file. However, because fibers uses a native binary that can't be wrapped into the file, we need to fix the directory, where the module is required. To this end, we provide the [pathLocalToGlobalFiber.sh] shell script.  
-
+	
+	```
 	# create prod bolt in target directory
 	
 	cd target/
 	sardines ../src/plan9/bolts/DeludedKittenRobbersBolt.js -o DeludedKittenRobbers.prod.js
 	../bin/patchLocalToGlobalFiber.sh DeludedKittenRobbers.prod.js
-
+	```
 
 2. We need to compile our Java wrappers and the Java Topology and bundle it all up into an "uberjar" that contains all dependencies and can be deployed to the cluster. Note: As of July, 2014, Storm and all submitted topologies will share the same classpath. That might cause problems, when requiring dependencies in different incompatible version to those that are required by Storm. There are efforts to change that in the future, but it hasn't yet arrived. However, as we use multilang bolts fo our main logic, we don't need to care too much. For the same reason, we need Storm as a dependency to compile our classes, but we must not include it in our uberjar. Otherwise it will not be possible to submit the topology to an actual cluster. Our `build.sh` handles that for us. 
 
