@@ -47,7 +47,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 ### Sources
 1. Enter the plan9_workshop_tutorial-master/source/plan9 directory
     ```
-    cd ~/unzip plan9_workshop_tutorial-master/source/plan9
+    cd  plan9_workshop_tutorial-master/source/plan9
     ```
 2. Clone the [web application][4]
     ```
