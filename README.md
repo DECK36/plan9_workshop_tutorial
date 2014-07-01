@@ -48,7 +48,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     sudo vi /etc/rabbitmq/rabbitmq.config
     ```
     Empty the file and paste
-   
+    ```
     [
       {rabbit, [
         {default_user, <<"guest">>},
@@ -56,7 +56,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
         {loopback_users, []}
       ]}
     ].
-    
+    ```
     Save the file.
 10. Restart the rabbit-mq service
     ```
