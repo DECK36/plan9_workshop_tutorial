@@ -49,12 +49,12 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     ```
     Empty the file and paste
     ```
-    [
-      {rabbit, [
-        {default_user, <<"guest">>},
-        {default_pass, <<"guest">>},
-        {loopback_users, []}
-      ]}
+    [ 
+        {rabbit, [ 
+            {default_user, <<"guest">>}, 
+            {default_pass, <<"guest">>}, 
+            {loopback_users, []} 
+        ]} 
     ].
     ```
     Save the file.
