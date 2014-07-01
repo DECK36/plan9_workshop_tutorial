@@ -27,18 +27,54 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 3. Restart Host (Windows only)
 4. Download the zipped [repository][3] to your $HOME or just C:\ or ~
 5. Unzip
+
     ```
     cd ~; unzip plan9_workshop_tutorial-master.zip
     ```
+    
 6. Enter the plan9_workshop_tutorial-master directory
+    
     ```
     cd plan9_workshop_tutorial-master
     ```
+
 7. Start the VM
+    
     ```
     vagrant up
     ```
-! You will need to enter your user password to mount the sources folder into the guest system !
+
+    You will need to enter your user password to mount the sources folder into the guest system!
+8. Enter the VM
+
+    ```
+    vagrant ssh
+    ```
+
+9. Edit the rabbit-mq config file
+    
+    ```
+    sudo vi /etc/rabbitmq/rabbitmq.config
+    ```
+
+    Empty the file and paste
+
+    ```
+    [ 
+        {rabbit, [ 
+            {default_user, <<"guest">>}, 
+            {default_pass, <<"guest">>}, 
+            {loopback_users, []} 
+        ]} 
+    ].
+    ```
+    
+    Save the file.
+10. Restart the rabbit-mq service
+    
+    ```
+    sudo /etc/init.d/rabbitmq-server restart
+    ```
 
 ### Install IDE (IntelliJ)
 1. Download [IntelliJ Community Edition][7]
@@ -49,40 +85,53 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 
 ### Sources
 1. Enter the plan9_workshop_tutorial-master/source/plan9 directory
+
     ```
     cd  plan9_workshop_tutorial-master/source/plan9
     ```
+    
 2. Clone the [web application][4]
+    
     ```
     git clone https://github.com/DECK36/deck36-php-web-app
     ```
+
 3. Install the php-web-app
     Follow the [README.md][4].
 
 4. Clone the [nodejs api backend][5]
+    
     ```
     git clone https://github.com/DECK36/deck36-api-backend
     ```
+
 5. Install the nodejs api backend
     Follow the [README.md][5].
 
 6. Clone the [storm backend][6]
+    
     ```
     git clone https://github.com/DECK36/deck36-storm-backend-nodejs
     ```
+
 7. Install the storm backend
-    Follow the [README.md][7].
+    Follow the [README.md][6].
 
 ## Start all components
 1. Enter the virtual mashine
+   
     ```
     vagrant ssh
     ```
+
 2. Got to the plan9 source dir in the vm
+    
     ```
     cd plan9
     ```
+
 3. Start all services
+    
     ```
     cd ~/plan9/deck36-api-backend;
     grunt start-plan9-dev;
