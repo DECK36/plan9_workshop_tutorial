@@ -39,6 +39,32 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     vagrant up
     ```
 ! You will need to enter your user password to mount the sources folder into the guest system !
+8. Enter the VM
+    ```
+    vagrant ssh
+    ```
+9. Edit the rabbit-mq config file
+    ```
+    sudo vi /etc/rabbitmq/rabbitmq.config
+    ```
+    Empty the file and paste
+    ```
+    % This file managed by Puppet
+    % Template Path: rabbitmq/templates/rabbitmq.config
+    [
+      {rabbit, [
+        {default_user, <<"guest">>},
+        {default_pass, <<"guest">>},
+        {loopback_users, []}
+      ]}
+    ].
+    % EOF
+    ```
+    Save the file.
+10. Restart the rabbit-mq service
+    ```
+    sudo /etc/init.d/rabbitmq-server restart
+    ```
 
 ### Install IDE (IntelliJ)
 1. Download [IntelliJ Community Edition][7]
