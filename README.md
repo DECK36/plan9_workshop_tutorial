@@ -44,9 +44,9 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     vagrant up
     ```
 
-! You will need to enter your user password to mount the sources folder into the guest system !
+    You will need to enter your user password to mount the sources folder into the guest system!
 8. Enter the VM
-    
+
     ```
     vagrant ssh
     ```
