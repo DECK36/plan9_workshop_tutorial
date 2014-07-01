@@ -48,7 +48,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
     sudo vi /etc/rabbitmq/rabbitmq.config
     ```
     Empty the file and paste
-    ```
+    
     % This file managed by Puppet
     % Template Path: rabbitmq/templates/rabbitmq.config
     [
@@ -59,7 +59,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
       ]}
     ].
     % EOF
-    ```
+    
     Save the file.
 10. Restart the rabbit-mq service
     ```
