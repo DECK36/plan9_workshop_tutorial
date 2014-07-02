@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 	config.vm.define :p9fok do |machine|
 
 		# Box settings
-  		machine.vm.box_url = "https://drive.google.com/file/d/0Bzg6Hh-t0iBDeTFWLTZvM3YzMEU/edit?usp=sharing"
+  		machine.vm.box_url = "https://docs.google.com/a/deck36.de/uc?id=0Bzg6Hh-t0iBDeTFWLTZvM3YzMEU&export=download"
   		machine.vm.box = "deck36-p9fok"
 
 		# Guest settings
