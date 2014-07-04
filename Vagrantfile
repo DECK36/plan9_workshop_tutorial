@@ -6,8 +6,8 @@ Vagrant.configure("2") do |config|
 	config.vm.define :p9fok do |machine|
 
 		# Box settings
-  		machine.vm.box_url = "https://drive.google.com/file/d/0Bzg6Hh-t0iBDeTFWLTZvM3YzMEU/edit?usp=sharing"
-  		machine.vm.box = "deck36-p9fok"
+  		machine.vm.box_url = "deck36/plan9"
+  		machine.vm.box = "deck36/plan9"
 
 		# Guest settings
   		machine.vm.hostname = "plan9.local"
