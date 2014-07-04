@@ -41,6 +41,7 @@ The workshop assumes the p9fok VM to be up and running and the sources mounted i
 7. Start the VM
     
     ```
+    Download p9fok.box from google-drive:           https://docs.google.com/a/deck36.de/uc?id=0Bzg6Hh-t0iBDeTFWLTZvM3YzMEU&export=download
     vagrant up
     ```
 
