@@ -20,7 +20,6 @@ This tutorial is dedicated to the workshops held by DECK36.
 
 ## Installation
 The workshop assumes the p9fok VM to be up and running and the sources mounted in the VM.
-ient of your choice, suitable for your system.
 
 See the [main README][README] for instructions to setup the dev environment. 
 
