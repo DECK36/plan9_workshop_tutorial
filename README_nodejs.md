@@ -9,7 +9,7 @@ Tutorial for the DECK36 Plan9 Workshop
 [7]: http://www.jetbrains.com/idea/download "IntelliJ Download"
 [8]: https://api.plan9-dev.deck36.de "Api dev"
 [9]: https://www.plan9-dev.deck36.de "Plan9 dev"
-[DEVMD]: ./DEV.md "Devmd"
+[DEVMD]: ./DEV_nodejs.md "Devmd"
 [README]: ./README.md "README"
 [logo]: ./deck36.png "Deck36 Logo"
 
