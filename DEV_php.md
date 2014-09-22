@@ -9,7 +9,7 @@ The Plan9 From Outer Space game demonstrates the integration of a massively para
 
 These simple badges, however, demonstrate problems often encoutered in the real-world, like performing joins of multiple data streams, or enhancing user events with background informations (like noticing when a user enters the website category, where he spends most of his time and awarding special offers based onthe revenue he generated last month).
 
-The [HighFiveBolt.php](TODO ADD LINK) provides a simple example of joining tuples in a data stream using the Redis key-value store. 
+The [HighFiveBolt.php](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/Command/HighFiveBolt.php) provides a simple example of joining tuples in a data stream using the Redis key-value store. 
 
 Here, we will create another Bolt that performs a local aggregation (for simplicity also backed by Redis) and periodically emits a data tuple based on that short-lived aggregation.
 
@@ -29,14 +29,14 @@ The Storm bolt thus has to implement the following logic:
 - Clear the aggregation map for the next round
 
 
-To trigger the periodic attack action, we will use a Storm feature called "tick tuples". Each component in a Storm topology can be individually configured to receive a "tick tuple" from Storm itself at a pre-set frequency. We provide a skeleton PHP bolt implementation that processes tick tuples: [EmptyTickTupleBolt.js](src/plan9/bolts/EmptyTickTupleBolt.js), as well as a Storm multilang adapter that provides an easy way to configure tick tuples: [MultilangAdapterTickTupleBolt.java](deck36-storm-backend-php/blob/master/src/jvm/deck36/storm/general/bolt/MultilangAdapterTickTupleBolt.java).
+To trigger the periodic attack action, we will use a Storm feature called "tick tuples". Each component in a Storm topology can be individually configured to receive a "tick tuple" from Storm itself at a pre-set frequency. We provide a skeleton PHP bolt implementation that processes tick tuples: [EmptyTickTupleBolt.php](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/Command/EmptyTickTupleBolt.php), as well as a Storm multilang adapter that provides an easy way to configure tick tuples: [MultilangAdapterTickTupleBolt.java](https://github.com/DECK36/deck36-storm-backend-php/blob/master/src/jvm/deck36/storm/general/bolt/MultilangAdapterTickTupleBolt.java).
 
 Read more about Storm tick tuples here: [Excursus: Tick Tuples in Storm 0.8+](http://www.michael-noll.com/blog/2013/01/18/implementing-real-time-trending-topics-in-storm/#excursus-tick-tuples-in-storm-08).
 
 
 ## Implement PHP Component
 
-To create the described Diluted Kitten Robbers Features, we will first create a new PHP bolt called "DelutedKittenRobbersBolt" based on the [EmptyTickTupleBolt.php](src/plan9/bolts/EmptyTickTupleBolt.php) in the "deck36-php-web-app" project. 
+To create the described Diluted Kitten Robbers Features, we will first create a new PHP bolt called "DelutedKittenRobbersBolt" based on the [EmptyTickTupleBolt.php](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/Command/EmptyTickTupleBolt.php) in the "deck36-php-web-app" project. 
 
 Because the web app uses the Symfony2 framework, we need not only copy an existing bolt implementation and extend it, but we also need do this in the context of a Symfony2 bundle and create the necessary configurations to enable our bolt to use dependency injection. As the bolt will be executed as a shell command from Storm, we create a Symfony2 command that we can later on invke from Storm. We will group all our PHP bolt implementations with a Symfony2 bundle called `StormBundle`.
 
@@ -45,7 +45,7 @@ Because the web app uses the Symfony2 framework, we need not only copy an existi
     cp EmptyTickTupleBolt.php DeludedKittenRobbers.php
     cp EmptyTickTupleBoltCommand.php DeludedKittenRobbersCommand.php
 
-We have thus created two new classes, `DeludedKittenRobbers` and `DeludedKittenRobbersCommand`. The `DeludedKittenRobbers` class implements our Storm component and its respective business logic. To this end, it extends `BasicBolt`, a class implementing the Storm multilang protocol which is found in the [storm.php]() file.
+We have thus created two new classes, `DeludedKittenRobbers` and `DeludedKittenRobbersCommand`. The `DeludedKittenRobbers` class implements our Storm component and its respective business logic. To this end, it extends `BasicBolt`, a class implementing the Storm multilang protocol which is found in the [storm.php](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/Command/storm.php) file.
 
 The `DeludedKittenRobbersCommand` class implements the Symfony2 `ContainerAwareCommand` and thus creates a Symfony2 command that will be provided with the Symfony2 service container, so it can access databases and other configurations. 
 
@@ -87,10 +87,10 @@ As you can see, the command implementation will access the service container fro
 
 ### Create Bolt configuration 
 
-In order to be able to configure the bolt behaviour, we need to define its paramters in the [storm.yml]() file. 
+In order to be able to configure the bolt behaviour, we need to define its parameters in the [storm.yml](https://github.com/DECK36/deck36-php-web-app/blob/master/app/config/storm.yml) file. 
 
 Please note:
-1) You can override the defaults set in storm.yml for the `dev` and `prod` environments by modifying the [storm_dev.yml]() and [storm_prod.yml]() files respectively. 
+1) You can override the defaults set in storm.yml for the `dev` and `prod` environments by modifying the [storm_dev.yml](https://github.com/DECK36/deck36-php-web-app/blob/master/app/config/storm_dev.yml) and [storm_prod.yml](https://github.com/DECK36/deck36-php-web-app/blob/master/app/config/storm_prod.yml) files respectively. 
 2) The yaml files will also be read by the Storm topology which is implemented in Java. Therefore, some values might be required, but are not used by the PHP implementation. 
 
 You can copy the configuration structure from the `EmptyTickTupleBolt` and modify it respectively: 
@@ -113,7 +113,7 @@ You can copy the configuration structure from the `EmptyTickTupleBolt` and modif
 
 ### Add configuration tree
 
-We need to define a config tree so that Symfony2 can validate the configuration we provide for our DeludedKittenRobbersBolt. To this end we need to add it to [StormBundle/DependencyInjection/Configuration.php]():
+We need to define a config tree so that Symfony2 can validate the configuration we provide for our DeludedKittenRobbersBolt. To this end we need to add it to [StormBundle/DependencyInjection/Configuration.php](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/DependencyInjection/Configuration.php):
 
     ->arrayNode('DeludedKittenRobbersBolt')
         ->children()
@@ -159,7 +159,7 @@ We need to define a config tree so that Symfony2 can validate the configuration 
 
 We now need to define the Symfony2 service which will read and use the configuration, we just created. 
 
-We can add the service in [StormBundle/Resources/config/services.xml]().
+We can add the service in [StormBundle/Resources/config/services.xml](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/Resources/config/services.xml).
 
 First we need to create a parameter which defines which class actually implements our bolt:
 
@@ -196,7 +196,7 @@ Then we can add the parameters from the config which shall be passed into the se
 
 ### Extend Deck36StormExtension
 
-We now need to add code to the [Deck36StormExtension]() in order to load our parameters into the service container:
+We now need to add code to the [Deck36StormExtension](https://github.com/DECK36/deck36-php-web-app/blob/master/src/Deck36/Bundle/StormBundle/DependencyInjection/Deck36StormExtension.php) in order to load our parameters into the service container:
 
     // DeludedKittenRobbersBolt        
     $container->setParameter('deludedkittenrobbers__badge_name',   $config['DeludedKittenRobbersBolt']['badge']['name']);
@@ -366,7 +366,7 @@ Our storm bolt command is now ready. We can execute it using:
 
     app/console storm:bolt:DeludedKittenRobbers
 
-The bolt will now wait for `stdin` input according to the [Storm multilang protocol](). We provide an exemplary multilang log in [test/test_multilang_bolt__KittenRobber.txt](). 
+The bolt will now wait for `stdin` input according to the [Storm multilang protocol](https://storm.incubator.apache.org/documentation/Multilang-protocol.html). We provide an exemplary multilang log in [test/test_multilang_bolt__KittenRobber.txt](https://github.com/DECK36/deck36-api-backend/blob/master/test/test_multilang_bolt__KittenRobber.txt). 
 
 You can just pipe that log into the bolt to see it in action:
 
@@ -478,7 +478,7 @@ You can now run `target/resources/deck36-plan9-storm.phar` to see that we have s
 
 ### Create Java wrapper topology
 
-Within the Storm wrapper topology, we will use the DECK36 [MultilangAdapterTickTupleBolt.java](deck36-storm-backend-php/blob/master/src/jvm/deck36/storm/general/bolt/MultilangAdapterTickTupleBolt.java) wrapper. That Java class implements a Bolt that will forward all tuples to the PHP bolt and configures Storms to send tick tuples. 
+Within the Storm wrapper topology, we will use the DECK36 [MultilangAdapterTickTupleBolt.java](https://github.com/DECK36/deck36-storm-backend-php/blob/master/src/jvm/deck36/storm/general/bolt/MultilangAdapterTickTupleBolt.java) wrapper. That Java class implements a Bolt that will forward all tuples to the PHP bolt and configures Storms to send tick tuples. 
 
 To create the full topology, we start from the *HighFiveBadgeTopology* already present in our "deck36-storm-backend-php" project:
 
@@ -633,7 +633,7 @@ The messages emitted by the RabbitMQ spout are then directly fed into our PHP bo
         log.info("Command to start bolt for Deluded Kitten Robbers: " + Arrays.toString(command.toArray()));
 
 
-We are now ready to actually add our PHP bolt to the topology. To this end, we use the [MultilangAdapterTickTupleBolt.java](deck36-storm-backend-php/blob/master/src/jvm/deck36/storm/general/bolt/MultilangAdapterTickTupleBolt.java) and read the tick frequency from the configuration. We simply call our bolt "badge" and connect to the RabbitMQ spout by using `.shuffleGrouping("incoming")`. Note: "incoming" is the name we have given to our RabbitMQ spout. 
+We are now ready to actually add our PHP bolt to the topology. To this end, we use the [MultilangAdapterTickTupleBolt.java](https://github.com/DECK36/deck36-storm-backend-php/blob/master/src/jvm/deck36/storm/general/bolt/MultilangAdapterTickTupleBolt.java) and read the tick frequency from the configuration. We simply call our bolt "badge" and connect to the RabbitMQ spout by using `.shuffleGrouping("incoming")`. Note: "incoming" is the name we have given to our RabbitMQ spout. 
             
         // Add constructed external bolt command to topology using MultilangAdapterTickTupleBolt
         builder.setBolt("badge",
@@ -691,7 +691,7 @@ We need to compile our Java wrappers and the Java Topology and bundle it all up 
 
 The `target` directory of our "deck36-php-web-app" project (where our Phar file resides) is symlinked to our "deck36-storm-backend-php" `resources` directory and will thus be included in the JAR file automatically.
 
-If you have not prepared the build environment as described in the [deck36-storm-backend-php README.md](), then you need to do this now:
+If you have not prepared the build environment as described in the [deck36-storm-backend-php README.md](https://github.com/DECK36/deck36-storm-backend-php/blob/master/README.md), then you need to do this now:
 
     ./prepare.sh
 
