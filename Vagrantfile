@@ -14,6 +14,10 @@ Vagrant.configure("2") do |config|
 
         # Network settings
         config.vm.network :private_network, ip: "192.168.42.2"
+        config.vm.network :forwarded_port, host:  8000, guest:    80
+        config.vm.network :forwarded_port, host:  8080, guest:  8080
+        config.vm.network :forwarded_port, host:  5672, guest:  5672
+        config.vm.network :forwarded_port, host: 15672, guest: 15672
 
         # VirtualBox Specific Customization
         config.vm.provider :virtualbox do |vb|
