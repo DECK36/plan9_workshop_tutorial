@@ -28,58 +28,29 @@ Please install the Vagrant image before the workshop:
     ```
     cd ~; unzip plan9_workshop_tutorial-master.zip
     ```
-    
+
 6. Enter the plan9_workshop_tutorial-master directory
-    
+
     ```
     cd plan9_workshop_tutorial-master
     ```
 
 7. Start the VM
-    
+
     ```
     vagrant up
     ```
 
     You will need to enter your user password to mount the sources folder into the guest system!
-8. Enter the VM
 
-    ```
-    vagrant ssh
-    ```
-
-9. Edit the rabbit-mq config file
-    
-    ```
-    sudo vi /etc/rabbitmq/rabbitmq.config
-    ```
-
-    Empty the file and paste
-
-    ```
-    [ 
-        {rabbit, [ 
-            {default_user, <<"guest">>}, 
-            {default_pass, <<"guest">>}, 
-            {loopback_users, []} 
-        ]} 
-    ].
-    ```
-    
-    Save the file.
-10. Restart the rabbit-mq service
-    
-    ```
-    sudo /etc/init.d/rabbitmq-server restart
-    ```
 
 ### Install IDE (IntelliJ)
 1. Download [IntelliJ Community Edition][4]
 2. Install the IDE
 
+
 ### Install git
 Just install a git client of your choice, suitable for your system.
-
 
 
 ## Choose Tutorial
@@ -88,6 +59,4 @@ To continue, please choose the tutorial you are interested in :
 
 [PHP Tutorial][PHPTUTORIAL]
 
-
 [Node.js Tutorial][NODETUTORIAL]
-

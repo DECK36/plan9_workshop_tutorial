@@ -51,8 +51,10 @@ Vagrant.configure("2") do |config|
         end
     end
 
-    # Branding
+    # RabbitMQ config and Branding
     config.vm.provision :shell, :inline => <<-PREPARE
+      /bin/cp /vagrant/source/rabbitmq.config /etc/rabbitmq/rabbitmq.config
+      /usr/bin/sudo /etc/init.d/rabbitmq-server restart
       /bin/cat /vagrant/source/ascii-logo.txt
     PREPARE
 end
