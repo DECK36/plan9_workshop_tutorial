@@ -43,7 +43,8 @@ Please install the Vagrant image before the workshop:
     ```
 
     You will need to enter your user password to mount the sources folder into the guest system!
-    If you have any problems with Windows, please read [this][5].
+    
+    **If you have any problems with Windows, please read [this][5].**
 
 
 ### Install IDE (IntelliJ)
