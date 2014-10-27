@@ -4,6 +4,7 @@ Tutorial for the DECK36 Plan9 Workshop
 [2]: http://www.vagrantup.com/downloads.html "Vagrant"
 [3]: https://github.com/DECK36/plan9_workshop_tutorial/archive/master.zip "Workshop Repo"
 [4]: http://www.jetbrains.com/idea/download "IntelliJ Download"
+[5]: ./README_windows.md "Help for Windows Users"
 [logo]: ./deck36.png "Deck36 Logo"
 [PHPTUTORIAL]: ./README_php.md "PHP Tutorial"
 [NODETUTORIAL]: ./README_nodejs.md "Node.js Tutorial"
@@ -42,6 +43,8 @@ Please install the Vagrant image before the workshop:
     ```
 
     You will need to enter your user password to mount the sources folder into the guest system!
+    
+    **If you have any problems with Windows, please read [this][5].**
 
 
 ### Install IDE (IntelliJ)
